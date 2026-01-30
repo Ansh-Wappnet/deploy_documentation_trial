@@ -29,8 +29,11 @@ jobs:
       - name: Install dependencies
         run: pip install mkdocs-material pymdown-extensions
 
-      - name: Build with MkDocs
-        run: mkdocs build -f "User docs/mkdocs.yml"
+      - name: Build User Docs
+        run: mkdocs build -f "User docs/mkdocs.yml" -d "../site"
+
+      - name: Build Super Admin Docs
+        run: mkdocs build -f "Super Admin docs/mkdocs.yml" -d "../site/super-admin"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -38,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'User docs/site'
+          path: 'site'
 
   deploy:
     environment:
