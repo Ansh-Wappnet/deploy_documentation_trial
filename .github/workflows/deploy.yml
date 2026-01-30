@@ -31,10 +31,10 @@ jobs:
         run: pip install mkdocs-material pymdown-extensions
 
       - name: Build User Docs
-        run: mkdocs build -f "User docs/mkdocs.yml" -d "site"
+        run: mkdocs build -f "User docs/mkdocs.yml" -d "$GITHUB_WORKSPACE/site"
 
       - name: Build Super Admin Docs
-        run: mkdocs build -f "Super Admin docs/mkdocs.yml" -d "site/super-admin"
+        run: mkdocs build -f "Super Admin docs/mkdocs.yml" -d "$GITHUB_WORKSPACE/site/super-admin"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
